@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, viewport-fit=cover,">
+    <meta name="color-scheme" content="light dark">
+    <link rel="stylesheet" href="/css/var.css"> <!-- المتغيرات -->
+    <link rel="stylesheet" href="/css/main.css"> <!-- ملف الإستايل الأساسي -->
+    <link rel="stylesheet" href="/css/footer.css"> <!-- ملف css الفوتر -->
+    <link rel="stylesheet" href="/css/adhkar.css">
+    <link rel="stylesheet" href="/css/animate.min.css"> <!-- مؤثرات الإنتقال -->
+    <link rel="shortcut icon" href="#">
+    <title>موقع الصدقة الجارية - أذكار الصباح والمساء والنوم والصلاة والطعام: دليلك اليومي للتذكير - التقوى</title>
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="أذكار الصباح والمساء والنوم والصلاة والطعام: دليلك اليومي للتذكير - التقوى">
+    <meta property="og:site_name" content="أذكار الصباح والمساء والنوم والصلاة والطعام: دليلك اليومي للتذكير - التقوى">
+    <meta name="keywords" content="أذكار الصباح، أذكار المساء، أذكار النوم، أذكار الطعام، أذكار الصلاة، التسابيح، الدعاء اليومي، الإسلام، القرآن، الحديث، التقوى، الإيمان">
+    <meta property="og:image" content="/img/preview_adhkar.jpg"/>
+    <meta property="og:description"
+        content="تعتبر صفحة الأذكار مصدرًا رائعًا للتأمل والتفكير. تحتوي هذه الصفحة على مجموعة من الأذكار والدعوات التي يمكن قراءتها في أوقات مختلفة من اليوم." />
+    <meta name="description"
+        content="هذا الموقع مخصص كصدقة جارية على روح المرحومة الحاجة رسمية عيسي حسن رمضان والحاج حسن محمد عمرو علي الهواري. يحتوي على مجموعة من الأذكار والدعوات التي يمكن قراءتها في أوقات مختلفة من اليوم." />
+    <link rel="shortcut icon" href="/img/logo-30px.png">
+</head>
+
+<body>
+    <header>
+        <h1>موقع الصدقة الجارية</h1>
+        <p>على روح المرحومة الحاجة رسمية عيسي حسن رمضان والحاج حسن محمد عمرو علي الهواري</p>
+    </header>
+
+    <!-- مربع البحث -->
+    <div style="text-align: center; margin-top: 20px;">
+        <input type="text" id="searchInput" placeholder="ابحث هنا..." onkeyup="searchContent()">
+    </div>
+
+    <!-- نتائج البحث -->
+    <div id="searchResults"></div>
+
+    <!-- باقي محتويات الموقع -->
+    <div id="app">
+        <!-- هنا ستضاف باقي محتويات الموقع كما كانت في الأصل -->
+    </div>
+
+    <script src="/js/main.js"></script>
+    <script src="/js/search.js"></script>
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSV to HTML Table</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+</head>
+<body>
+  <div id="csv-table"></div>
+
+  <script>
+    // تحميل ملف CSV وتحويله إلى نص باستخدام Fetch API
+    fetch('path_to_your_file/azkar.csv')
+      .then(response => response.text())
+      .then(csvData => {
+        // تحليل البيانات باستخدام Papa Parse
+        Papa.parse(csvData, {
+          header: true,
+          dynamicTyping: true,
+          complete: function(results) {
+            const data = results.data;
+            let table = '<table border="1"><thead><tr>';
+
+            // إنشاء العناوين
+            Object.keys(data[0]).forEach(key => {
+              table += `<th>${key}</th>`;
+            });
+
+            table += '</tr></thead><tbody>';
+
+            // إنشاء الصفوف
+            data.forEach(row => {
+              table += '<tr>';
+              Object.values(row).forEach(value => {
+                table += `<td>${value}</td>`;
+              });
+              table += '</tr>';
+            });
+
+            table += '</tbody></table>';
+            document.getElementById('csv-table').innerHTML = table;
+          }
+        });
+      })
+      .catch(error => {
+        console.error('Error loading CSV file:', error);
+      });
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON to HTML Table</title>
+</head>
+<body>
+  <div id="json-table"></div>
+
+  <script>
+    // تحميل ملف JSON وتحويله إلى جدول HTML
+    fetch('path_to_your_file/azkar.json')
+      .then(response => response.json())
+      .then(data => {
+        let table = '<table border="1"><thead><tr>';
+
+        // إنشاء العناوين بناءً على المفاتيح الموجودة في الكائن الأول
+        Object.keys(data[0]).forEach(key => {
+          table += `<th>${key}</th>`;
+        });
+
+        table += '</tr></thead><tbody>';
+
+        // إنشاء الصفوف
+        data.forEach(row => {
+          table += '<tr>';
+          Object.values(row).forEach(value => {
+            table += `<td>${value}</td>`;
+          });
+          table += '</tr>';
+        });
+
+        table += '</tbody></table>';
+        document.getElementById('json-table').innerHTML = table;
+      })
+      .catch(error => {
+        console.error('Error loading JSON file:', error);
+      });
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display JSON Data</title>
+</head>
+<body>
+  <div id="json-data"></div>
+
+  <script>
+    // تحميل ملف JSON وعرضه كنص في صفحة HTML
+    fetch('path_to_your_file/azkar-db.json')
+      .then(response => response.json())
+      .then(data => {
+        // عرض البيانات في صفحة HTML
+        document.getElementById('json-data').innerText = JSON.stringify(data, null, 2);
+      })
+      .catch(error => {
+        console.error('Error loading JSON file:', error);
+      });
+  </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display Web Content</title>
+</head>
+<body>
+  <iframe src="path_to_your_file/azkar-db" width="100%" height="600"></iframe>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display Image</title>
+  <style>
+    #image-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+    #image-container img {
+      max-width: 100%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div id="image-container">
+    <!-- تضمين الصورة -->
+    <img src="path_to_your_file/azkar-db.png" alt="Azkar Image">
+  </div>
+</body>
+</html>

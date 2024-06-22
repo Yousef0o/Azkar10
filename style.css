@@ -1,0 +1,67 @@
+/* المتغيرات */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #18bc9c;
+    --background-color: #ecf0f1;
+    --text-color: #2c3e50;
+    --header-background-color: #1abc9c;
+    --header-text-color: #ffffff;
+    --search-background-color: #ffffff;
+    --search-text-color: #2c3e50;
+    --search-border-color: #ddd;
+    --result-background-color: #ffffff;
+    --result-text-color: #2c3e50;
+    --result-border-color: #ddd;
+}
+
+/* ضبط الألوان الأساسية */
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* شريط العنوان */
+header {
+    background-color: var(--header-background-color);
+    color: var(--header-text-color);
+    text-align: center;
+    padding: 20px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* مربع البحث */
+#searchInput {
+    padding: 10px;
+    width: 80%;
+    max-width: 600px;
+    border: 1px solid var(--search-border-color);
+    border-radius: 5px;
+    color: var(--search-text-color);
+    background-color: var(--search-background-color);
+}
+
+#searchResults {
+    margin-top: 20px;
+    padding: 20px;
+}
+
+/* نتائج البحث */
+#searchResults div {
+    padding: 10px;
+    border: 1px solid var(--result-border-color);
+    background-color: var(--result-background-color);
+    color: var(--result-text-color);
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+/* باقي محتويات الموقع */
+#app {
+    padding: 20px;
+}
